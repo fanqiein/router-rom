@@ -79,7 +79,7 @@ jobs:
   
     - name: 下载源码
       run: |
-        git clone --depth=1 https://github.com/hanwckf/rt-n56u.git ${{ env.DIR }}  > /dev/null
+        git clone --depth=1 https://github.com/fanqiein/rt-n56u.git ${{ env.DIR }}  > /dev/null
         cd ${{ env.DIR }}/toolchain-mipsel
         sh dl_toolchain.sh > /dev/null
         pwd
@@ -95,9 +95,9 @@ jobs:
         grep "Non-Commercial Use Only" user/www/n56u_ribbon_fixed/state.js
     - name: 开始编译
       if: true
-     env: 
+      env: 
       #用空格分隔型号,循环编译
-      TNAME: "${{ github.event.inputs.production }}"
+       TNAME: "${{ github.event.inputs.production }}"
       run: |
         if [ "$TNAME" == "DEBUG" ];then
           exit 0
